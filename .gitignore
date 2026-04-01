@@ -1,0 +1,41 @@
+
+# Dependencies
+node_modules/
+
+# Environment Variables 
+.env
+
+
+# Build Output
+dist/
+build/
+out/
+*.tsbuildinfo
+
+
+# Bun
+bun.lock
+
+
+# Logs
+logs/
+*.log
+
+
+# Test & Coverage
+coverage/
+
+
+# Prisma
+prisma/generated/
+
+
+# Caches
+.eslintcache
+.cache/
+
+# Editor & IDE
+.cursor/
+
+# OS Generated Files
+.DS_Store
