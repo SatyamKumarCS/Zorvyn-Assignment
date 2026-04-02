@@ -24,7 +24,7 @@ app.use('/api/users', userRoutes)
 app.use('/api/records', recordRoutes)
 app.use('/api/dashboard', dashboardRoutes)
 
-app.use(notFound);
-app.use(errorHandler);
+app.use(notFound)
+app.use(errorHandler)
 
 export default app;
