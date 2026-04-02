@@ -2,6 +2,7 @@ import { recordRepository } from '../repositories/record.repository';
 import { getPaginationParams, createPaginatedResponse } from '../utils/pagination.util';
 import { RecordType } from '../types/enums';
 import type { CreateRecordInput, UpdateRecordInput, FilterRecordInput } from '../validators/record.validator';
+import { AppError } from '../middleware/error.middleware';
 
 export const recordService = {
     createRecord: async (data: CreateRecordInput, userId: string) => {
@@ -24,7 +25,7 @@ export const recordService = {
     getRecordById: async (id: string) => {
         const record = await recordRepository.findById(id);
         if (!record) {
-            throw new Error('Record not found');
+            throw new AppError('Record not found', 404);
         }
         return record;
     },
@@ -32,7 +33,7 @@ export const recordService = {
     updateRecord: async (id: string, data: UpdateRecordInput) => {
         const record = await recordRepository.findById(id);
         if (!record) {
-            throw new Error('Record not found');
+            throw new AppError('Record not found', 404);
         }
         return recordRepository.update(id, {
             ...data,
@@ -43,7 +44,7 @@ export const recordService = {
     deleteRecord: async (id: string) => {
         const record = await recordRepository.findById(id);
         if (!record) {
-            throw new Error('Record not found');
+            throw new AppError('Record not found', 404);
         }
         return recordRepository.softDelete(id);
     },

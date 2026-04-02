@@ -5,7 +5,7 @@ export const createRecordSchema = z.object({
         amount: z.number().positive("Amount Must be Positive"),
         type: z.enum(['INCOME', 'EXPENSE']),
         category: z.string().min(1, 'Category is missing'),
-        date: z.iso.datetime({ error: 'Invalid date format' }),
+        date: z.string().datetime({ message: 'Invalid date format' }),
         description: z.string().optional(),
     })
 })
@@ -15,7 +15,7 @@ export const updateRecordSchema = z.object({
         amount: z.number().positive().optional(),
         type: z.enum(['INCOME', 'EXPENSE']).optional(),
         category: z.string().min(1).optional(),
-        date: z.iso.datetime().optional(),
+        date: z.string().datetime().optional(),
         description: z.string().optional()
     })
 })
@@ -28,6 +28,7 @@ export const filterRecordSchema = z.object({
         endDate: z.string().optional(),
         page: z.string().optional(),
         limit: z.string().optional(),
+        search: z.string().optional(),
     }),
 });
 

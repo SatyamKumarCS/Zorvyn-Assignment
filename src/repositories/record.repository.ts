@@ -7,6 +7,7 @@ interface RecordFilters {
     category?: string;
     startDate?: string;
     endDate?: string;
+    search?: string;
 }
 
 export const recordRepository = {
@@ -27,6 +28,12 @@ export const recordRepository = {
                     },
                 }
                 : {}),
+            ...(filters.search && {
+                OR: [
+                    { category: { contains: filters.search, mode: 'insensitive' as any } },
+                    { description: { contains: filters.search, mode: 'insensitive' as any } },
+                ],
+            }),
         };
 
         const [records, total] = await Promise.all([

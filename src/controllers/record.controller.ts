@@ -14,12 +14,13 @@ export const recordController = {
     },
     getAllRecord: async (req: Request, res: Response, next: NextFunction): Promise<void> => {
         try {
-            const { type, category, startDate, endDate, page, limit } = req.query
+            const { type, category, startDate, endDate, page, limit, search } = req.query
             const result = await recordService.getAllRecords({
                 type: type as RecordType | undefined,
                 category: category as string | undefined,
                 startDate: startDate as string | undefined,
-                endDate: endDate as string | undefined
+                endDate: endDate as string | undefined,
+                search: search as string | undefined
             },
                 page ? parseInt(page as string) : undefined,
                 limit ? parseInt(limit as string) : undefined
