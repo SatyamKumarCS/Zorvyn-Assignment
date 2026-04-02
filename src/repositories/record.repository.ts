@@ -101,7 +101,7 @@ export const recordRepository = {
         type,
         SUM(amount) as total
       FROM financial_records
-      WHERE is_deleted = false
+      WHERE "isDeleted" = false
       GROUP BY DATE_TRUNC('month', date), type
       ORDER BY month DESC
       LIMIT 12
