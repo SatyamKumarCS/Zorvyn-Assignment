@@ -39,3 +39,5 @@ prisma/generated/
 
 # OS Generated Files
 .DS_Store
+
+/src/generated/prisma
