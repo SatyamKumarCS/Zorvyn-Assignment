@@ -40,6 +40,7 @@ jobs:
 
       - name: Run Tests
         env:
-          JWT_SECRET: testing_secret_key_for_ci
+          JWT_SECRET: ${{ secrets.JWT_SECRET || 'testing_secret_key_for_ci' }}
           NODE_ENV: test
+          DATABASE_URL: ${{ secrets.DATABASE_URL || 'postgresql://dummy_user:dummy_password@localhost:5432/dummy_db' }}
         run: bun run test
