@@ -13,6 +13,10 @@ const options: swaggerJsdoc.Options = {
         url: 'http://localhost:3000',
         description: 'Development server',
       },
+      {
+        url: process.env.SERVER_URL || 'https://your-production-url.com',
+        description: 'Production server',
+      }
     ],
     components: {
       securitySchemes: {
