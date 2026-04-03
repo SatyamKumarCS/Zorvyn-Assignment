@@ -72,7 +72,7 @@ bun run test
 The API utilizes base route `http://localhost:3000/api`. 
 Instead of testing via Postman, you can use the integrated **Swagger UI**:
 
-👉 **`http://localhost:3000/api-docs`**
+**`http://localhost:3000/api-docs`**
 
 *Note: For protected endpoints (like the Dashboard or Records modules), hit the `/auth/register` or `/auth/login` endpoint first. Copy the returned `token`, click the "Authorize" button in Swagger UI, and paste it into the Bearer token field.*
 
