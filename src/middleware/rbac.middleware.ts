@@ -1,6 +1,5 @@
 import type { Request, Response, NextFunction } from 'express'
 import { Role } from '../generated/prisma'
-import { success } from 'zod'
 
 export const authorize = (...roles: Role[]) => {
     return (req: Request, res: Response, next: NextFunction): void => {

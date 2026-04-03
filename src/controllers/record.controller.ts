@@ -48,7 +48,7 @@ export const recordController = {
     },
     deleteRecord: async (req: Request, res: Response, next: NextFunction): Promise<void> => {
         try {
-            const result = await recordService.deleteRecord(req.params.id as string)
+            await recordService.deleteRecord(req.params.id as string)
             res.status(200).json({ success: true, message: 'Record Deleted Successfully' })
         } catch (err) {
             next(err)
